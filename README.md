@@ -33,9 +33,12 @@ Will be live at: [status.projectpattie.com](https://status.projectpattie.com) ·
 
 ## Why this exists
 
-I wanted a link I can give a recruiter that proves the homelab is running right now, not a screenshot from last month. A status page is also a good excuse to write a small service that talks to Prometheus and the Kubernetes API, ships as a container, and gets deployed the same way as everything else on the cluster.
 
-The rule: **the page only reads.** It shows totals, it can't change anything, and nothing about the cluster's inside leaks out of it.
+My cluster has plenty of dashboards, but they're all behind a login or a kubectl command. I wanted one page that answers "is the lab up, and how is it doing?" at a glance, with no tools and no sign-in.
+
+It's also the smallest real service I could build to practice the whole path: write a Python app that reads from Prometheus and the Kubernetes API, package it as an image for both CPU types in the cluster, and deploy it with Flux like everything else.
+
+The rule: **the page only reads.** It shows totals, it can't change anything, and nothing about the inside of the cluster leaks out of it.
 
 ---
 
